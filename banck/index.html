@@ -157,7 +157,7 @@
             <div class="card">
               <div class="card-body">
                 <h5 class="card-title">assurance :</h5>
-                <p class="card-text">{{ t_a*c/100 }}</p>
+                <p class="card-text">{{ ((t_a*c*n)/(100*12)).toFixed(2) }}</p>
               </div>
             </div>
           </div>
@@ -337,9 +337,9 @@
                 this.t_y=this.t/100;
                 this.t_m=this.t_y/12;
                 this.m_h_a=this.c*this.t_m/(1-1/Math.pow(1+this.t_m,this.n));
-                this.a_total=this.m_h_a+this.t_a*this.c/100;
+                this.a_total=this.m_h_a+(this.t_a*this.c)/(12*100);
                 this.v_s_a=this.m_h_a*this.n;
-                this.v_a=this.a_total*this.n;
+                this.v_a=this.v_s_a+(this.t_a*this.c*this.n)/(12*100);
                 
                 if(this.c!=0 && this.t_y!=0 && this.n!=0 && this.t_a!=0){
                     this.show_table=true;
